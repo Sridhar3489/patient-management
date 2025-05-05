@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;  //split our service req and response files into separate files, by default code generation will be in single folder
+option java_package = "billing"; //code generation code spits into billing package
+
+service BillingService{
+    rpc CreateBillingAccount(BillingRequest) returns (BillingResponse);; //rpc is the protocol, CreateBillingAccount-method
+}
+
+message BillingRequest { //How billingRequest looks like (Similar to DTO)
+    string patientId=1; //Serialization and Deserialization (Not assigning)
+    string name=2;
+    string email=3;
+}
+
+message BillingResponse{
+    string accountId=1;
+    string status=2;
+}
