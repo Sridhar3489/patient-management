@@ -51,4 +51,8 @@ public class PatientService {
 
     }
 
+    public void deletePatient(UUID uuid) {
+        patientRepository.deleteById(uuid);
+    }
+
 }
