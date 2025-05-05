@@ -1,5 +1,6 @@
 package com.patient.patient_service.service;
 
+import com.google.protobuf.StringValue;
 import com.patient.patient_service.dto.PatientRequestDTO;
 import com.patient.patient_service.dto.PatientResponseDTO;
 import com.patient.patient_service.exception.EmailAlreadyExistsException;
@@ -57,6 +58,7 @@ public class PatientService {
     }
 
     public void deletePatient(UUID uuid) {
+        billingServiceGrpcClient.deleteBillingAccount(StringValue.of(uuid.toString()));
         patientRepository.deleteById(uuid);
     }
 
