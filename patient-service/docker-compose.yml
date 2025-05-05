@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   postgres:
+    container_name: patient-pg-db
     image: postgres:15
     restart: always
     environment:
