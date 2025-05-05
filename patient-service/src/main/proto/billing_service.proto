@@ -1,10 +1,13 @@
 syntax = "proto3";
 
+import "google/protobuf/wrappers.proto";
+
 option java_multiple_files = true;  //split our service req and response files into separate files, by default code generation will be in single folder
 option java_package = "billing"; //code generation code spits into billing package
 
 service BillingService{
-    rpc CreateBillingAccount(BillingRequest) returns (BillingResponse);; //rpc is the protocol, CreateBillingAccount-method
+    rpc CreateBillingAccount(BillingRequest) returns (BillingResponse);//rpc is the protocol, CreateBillingAccount-method
+    rpc DeleteBillingAccount(google.protobuf.StringValue) returns (google.protobuf.BoolValue);;
 }
 
 message BillingRequest { //How billingRequest looks like (Similar to DTO)

@@ -3,6 +3,8 @@ package com.patient.patient_service.grpc;
 import billing.BillingRequest;
 import billing.BillingResponse;
 import billing.BillingServiceGrpc;
+import com.google.protobuf.BoolValue;
+import com.google.protobuf.StringValue;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.slf4j.Logger;
@@ -40,6 +42,18 @@ public class BillingServiceGrpcClient {
         log.info("Received response from gRPC {}", billingResponse);
 
         return billingResponse;
+
+    }
+
+    public BoolValue deleteBillingAccount(StringValue patientId){
+
+        log.info("Received deleteBillingAccount request in patient-service {}", patientId);
+
+        BoolValue response = blockingStub.deleteBillingAccount(patientId);
+
+        log.info("Received response from gRPC {}", response);
+
+        return response;
 
     }
 

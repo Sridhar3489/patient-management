@@ -3,6 +3,8 @@ package com.patient.billing_service.grpc;
 import billing.BillingRequest;
 import billing.BillingResponse;
 import billing.BillingServiceGrpc;
+import com.google.protobuf.BoolValue;
+import com.google.protobuf.StringValue;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.slf4j.Logger;
@@ -25,6 +27,21 @@ public class BillingGrpcService extends BillingServiceGrpc.BillingServiceImplBas
 
         billingResponseStreamObserver.onNext(billingResponse);
         billingResponseStreamObserver.onCompleted();
+
+    }
+
+    @Override
+    public void deleteBillingAccount(StringValue patientId, StreamObserver<BoolValue> booleanStreamObserver){
+
+        log.info("deleteBillingAccount request received {}", patientId);
+
+        boolean boolValue = true;
+
+        BoolValue response = BoolValue.newBuilder().setValue(boolValue).build();
+
+        booleanStreamObserver.onNext(response);
+
+        booleanStreamObserver.onCompleted();
 
     }
 
