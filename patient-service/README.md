@@ -32,11 +32,22 @@
 - `docker ps`
 - `docker exec -it CONTAINER-ID bash`
 - `psql -U USERNAME -d DB-NAME`
+- `docker-compose down -v`
+- `docker-compose up --build`
 
 ### gRPC
+- Synchronous
 - Microservice communication
 - Low latency communication between services
 - `Protobuf (proto)` format
 - To work with gRPC, we need proto file
 - proto file will generate gRPC client and gRPC server
 - proto file will be placed in each microservice
+
+### Kafka
+- Asynchronous
+- bitnami/kafka - docker image(https://hub.docker.com/r/bitnami/kafka)
+
+### gRPC vs Kafka
+- gRPC can be used when we need one-one communication and require immediate response
+- Kafka can be used when we need one-many communication and we don't need an immediate response
