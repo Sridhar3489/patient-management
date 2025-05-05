@@ -1,4 +1,4 @@
-/v3/api-docs - Swagger docs
+- `/v3/api-docs` - Swagger docs
 
 ### Docker
 - Config/Dependencies (application.properties)
@@ -12,3 +12,11 @@
 - `docker ps`
 - `docker exec -it CONTAINER-ID bash`
 - `psql -U USERNAME -d DB-NAME`
+
+### gRPC
+- Microservice communication
+- Low latency communication between services
+- `Protobuf (proto)` format
+- To work with gRPC, we need proto file
+- proto file will generate gRPC client and gRPC server
+- proto file will be placed in each microservice
