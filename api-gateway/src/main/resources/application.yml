@@ -20,6 +20,7 @@ spring:
             - Path=/api/patients/**
           filters:
             - StripPrefix=1  # After / it will strip 1, i.e., /api will be removed
+            - JWTValidation # Spring will check for class whose prefix will be JWTValidation
           ### Client - http://localhost:4004/api/patients
           ### Patient-Service route - http://patient-service:4000/patients
 
@@ -29,3 +30,10 @@ spring:
             - Path=/api-docs/patients/**
           filters:
             - RewritePath=/api-docs/patients, /v3/api-docs
+
+        - id: api-auth-docs
+          uri: http://auth-service:4005
+          predicates:
+            - Path=/api-docs/auth/**
+          filters:
+            - RewritePath=/api-docs/auth, /v3/api-docs
